@@ -1,3 +1,5 @@
+@import url(https://www.google.com/fonts#UsePlace:use/Collection:Orbitron);
+
 html, body {
   height: 100%;
   width: 100%;
@@ -18,8 +20,9 @@ body {
   width: 512px;
   height: 301px;
   margin: 0 auto;
+  margin: top 50px;
   z-index: 98;
-}
+}/*Game Over sign board*/
 
 .marioPerson {
     background-image: url("http://portfolio.kageetai.net/mario/mario.gif");
@@ -285,6 +288,7 @@ div.mario span.coin.play img{
 
 /*GOOMBA*/
 .goomba {
+  display:none;
   position:absolute;
   width: 23px;
   height: 23px;
@@ -293,6 +297,56 @@ div.mario span.coin.play img{
   background-image: url("http://vignette4.wikia.nocookie.net/uncyclopedia/images/a/a1/Goomba_Gif1.gif/revision/latest?cb=20060803004304");
   -webkit-animation: goombaAttack 10s infinite linear;
           animation: goombaAttack 10s infinite linear;
+}
+
+#goomba2 {
+
+  -webkit-animation: goombaAttack 16s infinite linear;
+          animation: goombaAttack 16s infinite linear;
+}
+
+
+
+.koopa {
+  position:absolute;
+  width: 23px;
+  height: 29px;
+  left: 100vw;
+  bottom: 32px;
+  background-image: url("http://themushroomkingdom.net/images/ani/ani_4greenfly.gif");
+  -webkit-animation: goombaAttack 8s infinite linear;
+          animation: goombaAttack 8s infinite linear;
+}
+
+#koopa2 {
+  display:none;
+  background-image: url("http://themushroomkingdom.net/images/ani/ani_4redfly.gif");
+  -webkit-animation: goombaAttack 13s infinite linear;
+          animation: goombaAttack 13s infinite linear;
+}
+
+.plant {
+  position:absolute;
+  width: 21px;
+  height: 24px;
+  left: 100vw;
+  bottom: 32px;
+  background-image: url("http://themushroomkingdom.net/images/ani/ani_4plant.gif");
+  -webkit-animation: goombaAttack 20s infinite linear;
+          animation: goombaAttack 20s infinite linear;
+}
+
+.boom {
+  display:none;
+
+  position:absolute;
+  width: 28px;
+  height: 28px;
+  left: 100vw;
+  bottom: 50px;
+  background-image: url("http://themushroomkingdom.net/images/ani/smb3/ani_smb3_boomboomfly.gif");
+  -webkit-animation: boomAttack 5s infinite linear;
+          animation: boomAttack 5s infinite linear;
 }
 
 @keyframes goombaAttack {
@@ -304,4 +358,26 @@ div.mario span.coin.play img{
     left: -23px;
     bottom: 32px;
   }
+}
+
+@keyframes boomAttack {
+  0% {
+    left: 100vw;
+    bottom: 50px;
+  }
+  100% {
+    left: -23px;
+    bottom: 50px;
+  }
+}
+
+
+.score {
+  position:fixed;
+  top:-10px;
+  font:300 25px 'Orbitron', sans-serif;
+  color:white;
+  cursor:pointer;
+  text-decoration:none;
+}
 }

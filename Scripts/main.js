@@ -1,5 +1,8 @@
-$(document).ready(function () {
+// $('.song').trigger('play');
+//play song
+var scoreCount = 0;
 
+$(document).ready(function () {
   var width = $(window).width();
   var height = $(window).height();
 
@@ -7,6 +10,11 @@ $(document).ready(function () {
   $(document).keydown(function (key) {
   switch(parseInt(key.which, 10)) {
 
+    case 81:
+    location.reload();
+    break;
+
+//MOVE LEFT
   case 37:
   if(mario.position().left + 12 < 0) {
     console.log(mario.position().left);
@@ -14,28 +22,39 @@ $(document).ready(function () {
   };
   mario.css({left: mario.position().left - 12});
   goombaCrash($('.marioPerson'), $('.goomba'));
+  goombaCrash($('.marioPerson'), $('.koopa'));
+  goombaCrash($('.marioPerson'), $('.plant'));
+  goombaCrash($('.marioPerson'), $('.boom'));
 
   $('.marioPerson').css({'-moz-transform': 'scaleX(-1)',
         '-o-transform': 'scaleX(-1)',
         '-webkit-transform': 'scaleX(-1)',
         'transform': 'scaleX(-1)',
         'filter': 'FlipH',
-        '-ms-filter': "FlipH"})
+        '-ms-filter': 'FlipH'});
 
   // mario.animate({left: '-=10px'}, 'fast');
   break;
 
-
-  case 38:
+//MOVE UP THEN DOWN
+  case 32:
   // console.log(mario.position());
   // if(mario.position().top - 60 < 0) {
   //   mario.animate({top: 60})
   // }
+
   if(mario.position().top == (height - 87)) {
+    moveUp = true;
     mario.animate({bottom: '+=120px'}, 'fast', 'swing', function () {
 
     collision($('.marioPerson'), $('.mario'));//check if the coinbox and mario collide
     goombaCrash($('.marioPerson'), $('.goomba'));
+    goombaCrash($('.marioPerson'), $('.koopa'));
+    goombaCrash($('.marioPerson'), $('.plant'));
+    goombaCrash($('.marioPerson'), $('.boom'));
+
+
+
 
 
     $("<audio></audio>").attr({
@@ -45,6 +64,10 @@ $(document).ready(function () {
 
     $(this).animate({bottom: '-=120px'}, 'medium', function() {
       goombaCrash($('.marioPerson'), $('.goomba'));//game over when Mario lands on the goomba
+      goombaCrash($('.marioPerson'), $('.koopa'));
+      goombaCrash($('.marioPerson'), $('.plant'));
+      goombaCrash($('.marioPerson'), $('.boom'));
+      moveUp = false;
 
     });
 
@@ -56,13 +79,28 @@ $(document).ready(function () {
   // case 40:
   // $('#mario').animate({bottom: "-=10px"}, 'fast');
   // break;
+
+  //MOVE RIGHT
   case 39:
-  if(mario.position().left + 52 > width) {
+  if(mario.position().left + 125 > width) {
     console.log(mario.position().left);
     break;
   };
+
+  if(!moveUp) {
   mario.css({left: mario.position().left + 12});
   goombaCrash($('.marioPerson'), $('.goomba'));
+  goombaCrash($('.marioPerson'), $('.koopa'));
+  goombaCrash($('.marioPerson'), $('.plant'));
+  goombaCrash($('.marioPerson'), $('.boom'));
+}
+else {
+  mario.css({left: mario.position().left + 15});
+  goombaCrash($('.marioPerson'), $('.goomba'));
+  goombaCrash($('.marioPerson'), $('.koopa'));
+  goombaCrash($('.marioPerson'), $('.plant'));
+  goombaCrash($('.marioPerson'), $('.boom'));
+}
 
 if(  $('.marioPerson').css({'-moz-transform': 'scaleX(-1)',
         '-o-transform': 'scaleX(-1)',
@@ -76,7 +114,7 @@ if(  $('.marioPerson').css({'-moz-transform': 'scaleX(-1)',
                   'transform': 'scaleX(1)',
                   'filter': 'FlipH',
                   '-ms-filter': "FlipH"});
-                }
+                }//if the image is reversed, then reverse it back to the original position
   // mario.animate({left: "+=10px"}, 'fast');
   break;
   default:
@@ -87,12 +125,15 @@ if(  $('.marioPerson').css({'-moz-transform': 'scaleX(-1)',
 
 
 
-});
+});//end of document
+
+var moveUp = false;
 
 
 
 //Invoke the coin box effect when the divs collide
 var collide = function() {
+
   	var marioBox = $('div.mario');
   	marioBox.find('div.box').css('margin-top','-25px');
   	if (marioBox.find('span.coin').hasClass( "play" ) ) {
@@ -105,6 +146,8 @@ var collide = function() {
   			$('audio.block').remove();
   		}, 800);
   	}else{
+      scoreCount ++;
+      $('.score').html('<p>SCORE: '+scoreCount+' <img src="http://themushroomkingdom.net/images/ani/ani_smwcoin.gif"/><p>')
   		$("<audio></audio>").attr({
   			'src':'http://adobewordpress.com/tasarim/include/gold-sound.mp3',
   			'autoplay':'autoplay'
@@ -141,6 +184,10 @@ var goombaCollide = function() {
     $('body').css("animation-play-state", "paused");//stop background
     $('div.mario').css("animation-play-state", "paused");//stop coinbox
     $('.goomba').css("animation-play-state", "paused");
+    $('.koopa').css("animation-play-state", "paused");
+    $('.plant').css("animation-play-state", "paused");
+    $('.boom').css("animation-play-state", "paused");
+    $('.song').trigger('pause');//pause song
 		// setTimeout(function(){
 		// 	marioJump.find('div.marioPerson').addClass('lose');
 		// }, 150);
@@ -163,7 +210,7 @@ var goombaCollide = function() {
 // };
 
 setInterval(function() {$('div.mario span.coin.play').removeClass('play');
-$('div.mario div.box').removeClass('empty')}, 15000);
+$('div.mario div.box').removeClass('empty')}, 15000);//To make the the coin box reset
 
 // if($('div.mario').css("left", "-100px")) {
 //   console.log("passed");
@@ -225,4 +272,14 @@ function goombaCrash ($div1, $div2) {
 
     }
 
-setInterval(function () {goombaCrash($('.marioPerson'), $('.goomba'));}, 500);
+setInterval(function () {
+  goombaCrash( $('.marioPerson'), $('.goomba'));
+}, 300);
+setInterval(function () {goombaCrash($('.marioPerson'), $('#goomba2'));}, 300);
+setInterval(function () {goombaCrash($('.marioPerson'), $('.koopa'));}, 300);
+setInterval(function () {goombaCrash($('.marioPerson'), $('#koopa2'));}, 300);
+setInterval(function () {goombaCrash($('.marioPerson'), $('.plant'));}, 300);
+setInterval(function () {goombaCrash($('.marioPerson'), $('.boom'));}, 300);
+setTimeout(function () {$('.goomba').css('display', 'block')}, 5000);
+setTimeout(function () {$('#koopa2').css('display', 'block')}, 8000);
+setTimeout(function () {$('.boom').css('display', 'block')}, 12000);
