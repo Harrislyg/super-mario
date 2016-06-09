@@ -299,11 +299,11 @@ div.mario span.coin.play img{
           animation: goombaAttack 10s infinite linear;
 }
 
-#goomba2 {
+/*#goomba2 {
 
   -webkit-animation: goombaAttack 16s infinite linear;
           animation: goombaAttack 16s infinite linear;
-}
+}*/
 
 
 
@@ -338,7 +338,6 @@ div.mario span.coin.play img{
 
 .boom {
   display:none;
-
   position:absolute;
   width: 28px;
   height: 28px;
@@ -347,6 +346,18 @@ div.mario span.coin.play img{
   background-image: url("http://themushroomkingdom.net/images/ani/smb3/ani_smb3_boomboomfly.gif");
   -webkit-animation: boomAttack 5s infinite linear;
           animation: boomAttack 5s infinite linear;
+}
+
+.tunnel {
+  z-index: -1;
+  position:absolute;
+  width: 104px;
+  height: 160px;
+  left: 100vw;
+  bottom: 30px;
+  background-image: url("http://makepixelart.com/peoplepods/files/images/1647020.original.png");
+  -webkit-animation: tunnel 30s infinite linear;
+          animation: tunnel 30s infinite linear;
 }
 
 @keyframes goombaAttack {
@@ -368,6 +379,17 @@ div.mario span.coin.play img{
   100% {
     left: -23px;
     bottom: 50px;
+  }
+}
+
+@keyframes tunnel {
+  0% {
+    left: 100vw;
+    bottom: 30px;
+  }
+  100% {
+    left: -23px;
+    bottom: 30px;
   }
 }
 

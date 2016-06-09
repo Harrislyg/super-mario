@@ -187,6 +187,7 @@ var goombaCollide = function() {
     $('.koopa').css("animation-play-state", "paused");
     $('.plant').css("animation-play-state", "paused");
     $('.boom').css("animation-play-state", "paused");
+    $('.tunnel').css("animation-play-state", "paused");
     $('.song').trigger('pause');//pause song
 		// setTimeout(function(){
 		// 	marioJump.find('div.marioPerson').addClass('lose');
@@ -275,7 +276,7 @@ function goombaCrash ($div1, $div2) {
 setInterval(function () {
   goombaCrash( $('.marioPerson'), $('.goomba'));
 }, 300);
-setInterval(function () {goombaCrash($('.marioPerson'), $('#goomba2'));}, 300);
+// setInterval(function () {goombaCrash($('.marioPerson'), $('#goomba2'));}, 300);
 setInterval(function () {goombaCrash($('.marioPerson'), $('.koopa'));}, 300);
 setInterval(function () {goombaCrash($('.marioPerson'), $('#koopa2'));}, 300);
 setInterval(function () {goombaCrash($('.marioPerson'), $('.plant'));}, 300);
