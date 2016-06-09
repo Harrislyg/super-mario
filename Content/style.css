@@ -46,7 +46,7 @@ body {
 }
 
 .marioGameEnd {
-  background-image: url("file:///Users/harrisleow/Desktop/game_dev/Content/imageedit_11_8233695130.png");
+  background-image: url("imageedit_11_8233695130.png");
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
@@ -200,12 +200,12 @@ div.mario div.box{
   z-index:1;
   transition:margin-top .2s;
   cursor:pointer;
-  background-image:url('file:///Users/harrisleow/Desktop/game_dev/Content/imageedit_1_7355865117.png');
+  background-image:url('imageedit_1_7355865117.png');
   background-position:0 0;
 }
 
 div.mario div.box.empty{
-  background-image:url('file:///Users/harrisleow/Desktop/game_dev/Content/imageedit_1_7355865117.png');
+  background-image:url('imageedit_1_7355865117.png');
   background-position:50px 0;
   margin-top:0;
   cursor:not-allowed;
@@ -351,11 +351,11 @@ div.mario span.coin.play img{
 .tunnel {
   z-index: -1;
   position:absolute;
-  width: 104px;
-  height: 160px;
+  width: 50px;
+  height: 60px;
   left: 100vw;
-  bottom: 30px;
-  background-image: url("http://makepixelart.com/peoplepods/files/images/1647020.original.png");
+  bottom: 32px;
+  background-image: url("tunnel.png");
   -webkit-animation: tunnel 30s infinite linear;
           animation: tunnel 30s infinite linear;
 }
@@ -385,11 +385,11 @@ div.mario span.coin.play img{
 @keyframes tunnel {
   0% {
     left: 100vw;
-    bottom: 30px;
+    bottom: 32px;
   }
   100% {
     left: -23px;
-    bottom: 30px;
+    bottom: 32px;
   }
 }
 
