@@ -290,11 +290,11 @@ div.mario span.coin.play img{
 .goomba {
   display:none;
   position:absolute;
-  width: 23px;
-  height: 23px;
+  width: 16px;
+  height: 16px;
   left: 100vw;
   bottom: 32px;
-  background-image: url("http://vignette4.wikia.nocookie.net/uncyclopedia/images/a/a1/Goomba_Gif1.gif/revision/latest?cb=20060803004304");
+  background-image: url("http://themushroomkingdom.net/images/ani/anigoomba.gif");
   -webkit-animation: goombaAttack 10s infinite linear;
           animation: goombaAttack 10s infinite linear;
 }
