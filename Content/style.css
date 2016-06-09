@@ -349,6 +349,7 @@ div.mario span.coin.play img{
 }
 
 .tunnel {
+  display: none;
   z-index: -1;
   position:absolute;
   width: 50px;
@@ -361,6 +362,7 @@ div.mario span.coin.play img{
 }
 
 .tunnelPlant {
+  display: none;
   z-index: -1;
   position:absolute;
   margin-left: 13px;

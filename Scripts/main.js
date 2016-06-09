@@ -299,3 +299,5 @@ setInterval(function () {goombaCrash($('.marioPerson'), $('.tunnelPlant'));}, 30
 setTimeout(function () {$('.goomba').css('display', 'block')}, 5000);
 setTimeout(function () {$('#koopa2').css('display', 'block')}, 8000);
 setTimeout(function () {$('.boom').css('display', 'block')}, 12000);
+setTimeout(function () {$('.tunnel').css('display', 'block')}, 3000);
+setTimeout(function () {$('.tunnelPlant').css('display', 'block')}, 3000);
