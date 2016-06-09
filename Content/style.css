@@ -356,8 +356,22 @@ div.mario span.coin.play img{
   left: 100vw;
   bottom: 32px;
   background-image: url("tunnel.png");
-  -webkit-animation: tunnel 30s infinite linear;
-          animation: tunnel 30s infinite linear;
+  -webkit-animation: tunnel 15s infinite linear;
+          animation: tunnel 15s infinite linear;
+}
+
+.tunnelPlant {
+  z-index: -1;
+  position:absolute;
+  margin-left: 13px;
+  width: 24px;
+  height: 33px;
+  left: 100vw;
+  bottom: 92px;
+  background-image: url("http://themushroomkingdom.net/images/ani/smb3/ani_smb3_piranhaplantbigr.gif");
+  background-repeat: no-repeat;
+  -webkit-animation: plantAnimate 15s infinite linear;
+          animation: plantAnimate 15s infinite linear;
 }
 
 @keyframes goombaAttack {
@@ -388,8 +402,19 @@ div.mario span.coin.play img{
     bottom: 32px;
   }
   100% {
-    left: -23px;
+    left: -33px;
     bottom: 32px;
+  }
+}
+
+@keyframes plantAnimate {
+  0% {
+    left: 100vw;
+    bottom: 92px;
+  }
+  100% {
+    left: -33px;
+    bottom: 92px;
   }
 }
 

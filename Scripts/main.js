@@ -25,6 +25,8 @@ $(document).ready(function () {
   goombaCrash($('.marioPerson'), $('.koopa'));
   goombaCrash($('.marioPerson'), $('.plant'));
   goombaCrash($('.marioPerson'), $('.boom'));
+  goombaCrash($('.marioPerson'), $('.tunnelPlant'));
+
 
   $('.marioPerson').css({'-moz-transform': 'scaleX(-1)',
         '-o-transform': 'scaleX(-1)',
@@ -52,6 +54,8 @@ $(document).ready(function () {
     goombaCrash($('.marioPerson'), $('.koopa'));
     goombaCrash($('.marioPerson'), $('.plant'));
     goombaCrash($('.marioPerson'), $('.boom'));
+    goombaCrash($('.marioPerson'), $('.tunnelPlant'));
+
 
 
 
@@ -67,6 +71,8 @@ $(document).ready(function () {
       goombaCrash($('.marioPerson'), $('.koopa'));
       goombaCrash($('.marioPerson'), $('.plant'));
       goombaCrash($('.marioPerson'), $('.boom'));
+      goombaCrash($('.marioPerson'), $('.tunnelPlant'));
+
       moveUp = false;
 
     });
@@ -93,6 +99,8 @@ $(document).ready(function () {
   goombaCrash($('.marioPerson'), $('.koopa'));
   goombaCrash($('.marioPerson'), $('.plant'));
   goombaCrash($('.marioPerson'), $('.boom'));
+  goombaCrash($('.marioPerson'), $('.tunnelPlant'));
+
 }
 else {
   mario.css({left: mario.position().left + 15});
@@ -100,6 +108,8 @@ else {
   goombaCrash($('.marioPerson'), $('.koopa'));
   goombaCrash($('.marioPerson'), $('.plant'));
   goombaCrash($('.marioPerson'), $('.boom'));
+  goombaCrash($('.marioPerson'), $('.tunnelPlant'));
+
 }
 
 if(  $('.marioPerson').css({'-moz-transform': 'scaleX(-1)',
@@ -164,6 +174,7 @@ var collide = function() {
 };
 
 var goombaCollide = function() {
+  console.log(true);
   	var marioJump = $('div.marioPerson');
   	marioJump.css('background-image','none');
 
@@ -188,6 +199,8 @@ var goombaCollide = function() {
     $('.plant').css("animation-play-state", "paused");
     $('.boom').css("animation-play-state", "paused");
     $('.tunnel').css("animation-play-state", "paused");
+    $('.tunnelPlant').css("animation-play-state", "paused");
+
     $('.song').trigger('pause');//pause song
 		// setTimeout(function(){
 		// 	marioJump.find('div.marioPerson').addClass('lose');
@@ -281,6 +294,8 @@ setInterval(function () {goombaCrash($('.marioPerson'), $('.koopa'));}, 300);
 setInterval(function () {goombaCrash($('.marioPerson'), $('#koopa2'));}, 300);
 setInterval(function () {goombaCrash($('.marioPerson'), $('.plant'));}, 300);
 setInterval(function () {goombaCrash($('.marioPerson'), $('.boom'));}, 300);
+setInterval(function () {goombaCrash($('.marioPerson'), $('.tunnelPlant'));}, 300);
+
 setTimeout(function () {$('.goomba').css('display', 'block')}, 5000);
 setTimeout(function () {$('#koopa2').css('display', 'block')}, 8000);
 setTimeout(function () {$('.boom').css('display', 'block')}, 12000);
