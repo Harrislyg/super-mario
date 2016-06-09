@@ -14,7 +14,14 @@ body {
           animation: back 15s infinite linear;
 }
 
-#marioId {
+#gameOver {
+  width: 512px;
+  height: 301px;
+  margin: 0 auto;
+  z-index: 98;
+}
+
+.marioPerson {
     background-image: url("http://portfolio.kageetai.net/mario/mario.gif");
     background-repeat: no-repeat;
     background-position: center;
@@ -22,14 +29,35 @@ body {
     position: absolute;
     left: 30%;
     bottom: 27px;
-    width: 52px;
+    width: 32px;
     height: 60px;
     overflow: hidden;
     z-index: 99;
+    /*background-color: grey;*/
+    /*padding: 1px;*/
+    /*margin: 1px;*/
     /*-webkit-animation: forward 15s infinite linear;
     animation: forward 15s infinite linear;*/
 
 
+}
+
+.marioGameEnd {
+  background-image: url("file:///Users/harrisleow/Desktop/game_dev/Content/imageedit_11_8233695130.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  left: 7%;
+  bottom: 27px;
+  width: 32px;
+  height: 60px;
+  background-position: center 25px;
+  margin-left: -3px;
+  margin-bottom: -15px;
+  display: none;
+
+
+  /*z-index: 1;*/
 }
 
 /*@keyframes forward {
@@ -94,7 +122,7 @@ body {
 div.mario {
   position:absolute;
   left: 100vw;
-  bottom:183px;
+  bottom:201px;
   -webkit-animation: coinBox 15s infinite linear;
           animation: coinBox 15s infinite linear;
 
@@ -103,11 +131,11 @@ div.mario {
 @keyframes coinBox {
   0% {
     left: 100vw;
-    bottom: 183px;
+    bottom: 201px;
   }
   100% {
     left: -100px;
-    bottom: 183px;
+    bottom: 201px;
   }
 }
 
@@ -118,6 +146,49 @@ div.mario span.coin{
   margin-top:0px;
   opacity:0;
 }
+
+/*LOSE GAME CSS*/
+div.marioPerson.lose {
+  display: none;
+}
+
+div.marioPerson div.marioGameEnd {
+  transition: opacity .3s ease-out;
+}
+
+div.marioPerson div.marioGameEnd.jump {
+  display: block;
+  -webkit-animation-name: endGame;
+  -webkit-animation-duration: 800ms;
+  -webkit-animation-timing-function: linear;
+  -moz-animation-name: endGame;
+  -moz-animation-duration: 800ms;
+  -moz-animation-timing-function: linear;
+  -ms-animation-name: endGame;
+  -ms-animation-duration: 800ms;
+  -ms-animation-timing-function: linear;
+  animation-name: endGame;
+  animation-duration: 800ms;
+  animation-timing-function: linear;
+}
+
+@-moz-keyframes endGame {
+    10% { opacity:0.7;}
+    25% { opacity:1;}
+    90% { opacity:0.7;}
+}
+@-webkit-keyframes endGame {
+    10% { opacity:0.7;}
+    25% { opacity:1;}
+    90% { opacity:0.7;}
+}
+@keyframes endGame {
+    10% { opacity:0.7;}
+    25% { opacity:1;}
+    90% { opacity:0.7;}
+
+}
+/*END OF LOSE GAME*/
 
 div.mario div.box{
   position:relative;
@@ -211,11 +282,26 @@ div.mario span.coin.play img{
     90% { margin-top:-160px;opacity:0;}
 }
 
-/* OFF-TOPIC */
-a.link{
-  position:fixed;bottom:10px;
-  font:300 26px 'Sacramento', sans-serif;
-  color:white;
-  cursor:pointer;
-  text-decoration:none;
+
+/*GOOMBA*/
+.goomba {
+  position:absolute;
+  width: 23px;
+  height: 23px;
+  left: 100vw;
+  bottom: 32px;
+  background-image: url("http://vignette4.wikia.nocookie.net/uncyclopedia/images/a/a1/Goomba_Gif1.gif/revision/latest?cb=20060803004304");
+  -webkit-animation: goombaAttack 10s infinite linear;
+          animation: goombaAttack 10s infinite linear;
+}
+
+@keyframes goombaAttack {
+  0% {
+    left: 100vw;
+    bottom: 32px;
+  }
+  100% {
+    left: -23px;
+    bottom: 32px;
+  }
 }
